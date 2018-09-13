@@ -49,8 +49,7 @@ export class VersionController implements interfaces.Controller {
   public getVersion(
     @requestParam("id") id: string,
     request: express.Request,
-    response: express.Response,
-    next: express.NextFunction
+    response: express.Response
   ): void {
     response.json(this.versionsService.getVersionById(id));
   }

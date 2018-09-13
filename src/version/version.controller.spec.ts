@@ -20,7 +20,6 @@ describe("VersionController", () => {
     it("expect version", () => {
       const request: express.Request = {} as any;
       const response: express.Response = {} as any;
-      const next: express.NextFunction = {} as any;
       const id: string = "1";
       const version: VersionModel = {} as any;
       const versionsServiceGetVersionByIdStub = sinon.stub().returns(version);
@@ -28,7 +27,7 @@ describe("VersionController", () => {
       const responseJsonSpy = sinon.spy();
       response.json = responseJsonSpy;
 
-      versionController.getVersion(id, request, response, next);
+      versionController.getVersion(id, request, response);
 
       expect(versionsServiceGetVersionByIdStub.called).is.true;
       expect(responseJsonSpy.calledWith(version)).is.true;
